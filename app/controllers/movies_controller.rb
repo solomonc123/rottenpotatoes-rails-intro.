@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
 		@movies = Movie.with_ratings(@ratings_to_show)
 
 		if params[:sort] == 'title'
-			@title_header = 'hilite'
+			@title_header = "p-3 mb-2 bg-warning text-dark"
 			@movies = Movie.sortTitle()
 		end
 
