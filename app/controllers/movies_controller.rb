@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     @all_ratings = Movie.all_ratings
-    @ratings_to_show = ['G','PG','PG-13','R']
+    @ratings_to_show = ['G','PG','R']
   end
 
   def new
