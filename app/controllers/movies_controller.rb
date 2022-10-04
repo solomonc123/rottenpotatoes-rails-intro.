@@ -18,12 +18,12 @@ class MoviesController < ApplicationController
 		@movies = Movie.with_ratings(@ratings_to_show)
 
 		if params[:sort] == 'title'
-			@title_header = 'hilite'
+			# @title_header = 'hilite'
 			@movies = Movie.sortTitle()
 		end
 
 		if params[:sort] == 'release_date'
-			@release_date_header = 'hilite'
+			# @release_date_header = 'hilite'
 			@movies = Movie.sortDate()
 		end
 
