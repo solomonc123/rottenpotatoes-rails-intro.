@@ -11,7 +11,11 @@ class Movie < ActiveRecord::Base
 	end
 
 	def self.sortTitle()
-		return Movie.order(title: :desc)
+		return Movie.order(title: :asc)
+	end
+
+	def self.sortDate()
+		return Movie.order(title: :asc)
 	end
 
 
