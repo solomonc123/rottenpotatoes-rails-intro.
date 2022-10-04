@@ -16,7 +16,7 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th>Movie Title</th>
+      <%= link_to "More about #{movie.title}", movie_path(movie) %>
       <th>Rating</th>
       <th>Release Date</th>
       <th>More Info</th>
