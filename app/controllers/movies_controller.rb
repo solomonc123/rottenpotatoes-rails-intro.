@@ -11,11 +11,10 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @ratings_to_show = []
 		if params[ratings] != nil
-			params[ratings].each do [key,value]
+			for params[ratings].each do [key,value]
 				@ratings_to_show.append(key)
 			end
 		end
-		
   end
 
   def new
