@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
 			@movies = Movie.sortTitle()
 		end
 
-		if params[:sort] == release_date
+		if params[:sort] == 'release_date'
 			@movies = Movie.sortDate()
 		end
 
