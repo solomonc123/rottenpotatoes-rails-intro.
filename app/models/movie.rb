@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
 	def self.all_ratings()
-		return Movies.uniq.pluck(:rating)
+		return Movie.uniq.pluck(:rating)
 	end
 
 	def self.with_ratings(ratings_list)
