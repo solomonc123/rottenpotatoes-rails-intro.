@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
 		end
 
 		if params[:sort] == 'release_date'
-			# @release_date_header = "p-3 mb-2 bg-warning text-dark"
+			@release_date_header = "p-3 mb-2 bg-warning text-dark"
 			@movies = Movie.sortDate()
 		end
 
