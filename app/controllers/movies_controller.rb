@@ -28,8 +28,8 @@ class MoviesController < ApplicationController
       puts "REACHED 2A"
       puts @ratings_to_show.length()
 
-			if sessions[:ratings_to_show] != nil
-        sessions[:ratings_to_show].each do |key,value|
+			if session[:ratings_to_show] != nil
+        session[:ratings_to_show].each do |key,value|
           @ratings_to_show.append(key)
         end
       end
