@@ -18,10 +18,13 @@ class MoviesController < ApplicationController
 		@movies = Movie.with_ratings(@ratings_to_show)
 
 		if params[:sort] == 'title'
-      puts "LETSSEETHIS"
+      puts "LETSSEETHIS1"
       puts params[:ratings]
+      puts "LETSSEETHIS2"
       puts params[:ratings].keys
+      puts "LETSSEETHIS3"
       puts @ratings_to_show
+      puts "LETSSEETHIS4"
 			@title_header = "p-3 mb-2 bg-warning text-dark"
       @ratings_to_show = @ratings.keys
       @movies = Movie.with_ratings(@ratings_to_show)
