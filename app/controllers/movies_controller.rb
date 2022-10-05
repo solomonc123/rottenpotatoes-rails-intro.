@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
 		if params[:sort] == 'title'
       puts "LETSSEETHIS"
       puts params[:ratings]
-      puts @ratings.keys
+      puts params[:ratings].keys
       puts @ratings_to_show
 			@title_header = "p-3 mb-2 bg-warning text-dark"
       @ratings_to_show = @ratings.keys
