@@ -24,6 +24,7 @@ class MoviesController < ApplicationController
 		end
 
 		if params[:sort] == 'release_date'
+      @sort = 'release_date'
 			@release_date_header = 'hilite p-3 mb-2 bg-warning text-dark'
 			@movies = Movie.sortDate(@ratings_to_show)
 		end
