@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-		
+		#think it works
     @all_ratings = Movie.all_ratings
 
     if params[:home] == nil
