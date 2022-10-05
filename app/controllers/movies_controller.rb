@@ -21,6 +21,8 @@ class MoviesController < ApplicationController
 			puts session[:ratings_to_show].length()
       @ratings_to_show = []
       if params[:ratings] != nil
+				puts "RATINGS NOT NIL"
+				puts params[:ratings].length()
         params[:ratings].each do |key,value|
           @ratings_to_show.append(key)
         end
