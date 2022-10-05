@@ -17,9 +17,10 @@ class MoviesController < ApplicationController
     else
       @ratings_to_show = []
       if params[:ratings] != nil
-        params[:ratings].each do |key,value|
-          @ratings_to_show.append(key)
-        end
+				@ratings_to_show = params[:ratings].keys
+        # params[:ratings].each do |key,value|
+        #   @ratings_to_show.append(key)
+        # end
       end
       @movies = Movie.with_ratings(@ratings_to_show)
 
