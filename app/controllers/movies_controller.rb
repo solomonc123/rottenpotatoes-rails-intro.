@@ -9,26 +9,35 @@ class MoviesController < ApplicationController
   def index
 		
     @all_ratings = Movie.all_ratings
-    @ratings_to_show = []
-		if params[:ratings] != nil
-			params[:ratings].each do |key,value|
-				@ratings_to_show.append(key)
-			end
-		end
-		@movies = Movie.with_ratings(@ratings_to_show)
 
-		if params[:sort] == 'title'
-      @sort = 'title'
-			@title_header = 'hilite p-3 mb-2 bg-warning text-dark'
-      @movies = Movie.sortTitle(@ratings_to_show)
-		end
+    if params[:home] == nil
+      @sort = session[:sort]
+      @ratings_to_show = session[:ratings_to_show]
+      redirect_to movies_path(:sort=>@sort, :ratings=>(@ratings_to_show),:home =>"1")
+    else
+      @ratings_to_show = []
+      if params[:ratings] != nil
+        params[:ratings].each do |key,value|
+          @ratings_to_show.append(key)
+        end
+      end
+      @movies = Movie.with_ratings(@ratings_to_show)
 
-		if params[:sort] == 'release_date'
-      @sort = 'release_date'
-			@release_date_header = 'hilite p-3 mb-2 bg-warning text-dark'
-			@movies = Movie.sortDate(@ratings_to_show)
-		end
+      if params[:sort] == 'title'
+        @sort = 'title'
+        @title_header = 'hilite p-3 mb-2 bg-warning text-dark'
+        @movies = Movie.sortTitle(@ratings_to_show)
+      end
 
+      if params[:sort] == 'release_date'
+        @sort = 'release_date'
+        @release_date_header = 'hilite p-3 mb-2 bg-warning text-dark'
+        @movies = Movie.sortDate(@ratings_to_show)
+      end
+
+      session[:sort] = @sort
+      session[:ratings_to_show] = @ratings_to_show
+    end
   end
 
   def new
