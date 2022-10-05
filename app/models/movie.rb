@@ -21,7 +21,7 @@ class Movie < ActiveRecord::Base
 		if ratings_list == nil or ratings_list.length() == 0
 			return Movie.order(release_date: :asc)
 		end
-		return Movie.order(release_date: :asc)
+		return Movie.where(rating:ratings_list).order(release_date: :asc)
 	end
 
 
