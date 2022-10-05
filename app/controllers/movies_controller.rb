@@ -13,6 +13,8 @@ class MoviesController < ApplicationController
     if params[:home] == nil
       @sort = session[:sort]
       @ratings_to_show = session[:ratings_to_show]
+      PUTS "REACHED 1"
+      PUTS @ratings_to_show.length()
       redirect_to movies_path(:sort=>@sort, :ratings=>(@ratings_to_show),:home =>"1")
     else
       @ratings_to_show = []
@@ -22,6 +24,8 @@ class MoviesController < ApplicationController
         end
       end
       @movies = Movie.with_ratings(@ratings_to_show)
+      PUTS "REACHED 2"
+      PUTS @ratings_to_show.length()
 
       if params[:sort] == 'title'
         @sort = 'title'
@@ -37,6 +41,8 @@ class MoviesController < ApplicationController
 
       session[:sort] = @sort
       session[:ratings_to_show] = @ratings_to_show
+      PUTS "REACHED 3"
+      PUTS @ratings_to_show.length()
     end
   end
 
