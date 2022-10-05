@@ -20,10 +20,15 @@ class MoviesController < ApplicationController
 			puts "REACHED 2"
 			puts session[:ratings_to_show].length()
       @ratings_to_show = []
-      if params[:ratings] != nil
+      if params[:ratings] != nil || session[:ratings_to_show] != nil
 				puts "RATINGS NOT NIL"
 				puts params[:ratings].length()
         params[:ratings].each do |key,value|
+					puts "executing params append"
+          @ratings_to_show.append(key)
+        end
+				session[:ratings_to_show].each do |key,value|
+					puts "executing session append"
           @ratings_to_show.append(key)
         end
       end
