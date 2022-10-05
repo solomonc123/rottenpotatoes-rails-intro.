@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
       puts "LETSSEETHIS1"
       puts params[:ratings]
       puts "LETSSEETHIS2"
-      @ratings_to_show.each do |key,value|
+      @ratings.each do |key,value|
 				puts key
         puts value
 			end
