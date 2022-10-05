@@ -20,13 +20,13 @@ class MoviesController < ApplicationController
 		if params[:sort] == 'title'
 			@title_header = "p-3 mb-2 bg-warning text-dark"
       @ratings = @ratings_to_show
-      @movies = Movie.sortTitle()
+      @movies = Movie.sortTitle(@ratings_to_show)
 		end
 
 		if params[:sort] == 'release_date'
 			@release_date_header = "p-3 mb-2 bg-warning text-dark"
       @ratings = @ratings_to_show
-			@movies = Movie.sortDate()
+			@movies = Movie.sortDate(@ratings_to_show)
 		end
 
   end
