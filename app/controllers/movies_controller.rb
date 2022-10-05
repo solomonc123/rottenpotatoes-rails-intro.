@@ -19,7 +19,9 @@ class MoviesController < ApplicationController
 
 		if params[:sort] == 'title'
 			@title_header = "p-3 mb-2 bg-warning text-dark"
-      @ratings = @ratings_to_show
+      params[:ratings].each do |key,value|
+        @ratings_to_show.append(key)
+      end
 			@movies = Movie.sortTitle()
 		end
 
