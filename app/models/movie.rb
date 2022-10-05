@@ -14,7 +14,7 @@ class Movie < ActiveRecord::Base
 		if ratings_list == nil or ratings_list.length() == 0
 			return Movie.order(title: :asc)
 		end
-		return Movie.order(title: :asc)
+		return Movie.where(rating:ratings_list).order(title: :asc)
 	end
 
 	def self.sortDate(ratings_list)
